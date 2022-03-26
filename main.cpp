@@ -1,5 +1,6 @@
 #include <iostream>
 #include <array>
+#include <numeric>
 
 constexpr int constexprPow(int base, int pow) {
     int result = 1;
@@ -48,6 +49,9 @@ auto  beautyCount(const Sums& sums) {
 
 int main() {
     const auto sums = getSums();
+
+    std::cout << "all sum = " << std::accumulate(sums.begin(), sums.end(), 0ll)
+        << " must be " << MAX_NUMBER << '\n';
 
     const auto count = beautyCount(sums);
 
