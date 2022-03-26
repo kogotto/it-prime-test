@@ -27,6 +27,8 @@ int digitSum(int n) {
 
 using Sums = std::array<int, MAX_SUM + 1>;
 
+// Prepare map where key is digit sum for 6-digit number
+// and value is count of such sums
 auto getSums() {
     Sums result{};
     for (int current = 0; current < MAX_NUMBER; ++current) {
@@ -35,6 +37,7 @@ auto getSums() {
     return result;
 }
 
+// For every 6-digit sum there is sum*sum*13 beauty numbers
 auto  beautyCount(const Sums& sums) {
     int64_t count = 0;
     for (const int64_t c : sums) {
