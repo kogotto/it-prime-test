@@ -27,22 +27,13 @@ int digitSum(int n) {
 
 using Sums = std::array<int, MAX_SUM + 1>;
 
-void print(const Sums& sums) {
-    for (int i = 0; i < sums.size(); ++i) {
-        std::cout << "sum = " << i << " count = " << sums[i] << '\n';
-    }
-}
-
 auto getSums() {
     Sums result{};
     for (int current = 0; current < MAX_NUMBER; ++current) {
         ++result[digitSum(current)];
     }
-    print(result);
     return result;
 }
-
-#define pr(s) {std::cout << #s << " = " << (s) << '\n';}
 
 auto  beautyCount(const Sums& sums) {
     int64_t count = 0;
@@ -54,12 +45,6 @@ auto  beautyCount(const Sums& sums) {
 
 int main() {
     const auto sums = getSums();
-
-    pr(digitSum(0));
-    pr(digitSum(1));
-    pr(digitSum(13));
-    pr(digitSum(13+1));
-    pr(digitSum(2*13 + 5));
 
     const auto count = beautyCount(sums);
 
